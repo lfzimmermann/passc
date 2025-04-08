@@ -14,4 +14,11 @@ pkgs.mkShell {
 		ninja
 		meson
   ];
+  shellHook = ''
+		nix-build
+		PROJDIR=$(pwd)
+		PATH=$PROJDIR/result/bin/:$PATH
+		passc &&
+		exit
+  '';
 }

@@ -1,2 +1,4 @@
 project('passc', 'c')
-executable('hello', 'src/main.c', link_args : '-lncurses')
+ncurses = dependency('ncurses')
+menu = dependency('menu')
+executable('hello', 'src/main.c', dependencies: [ncurses, menu])
